@@ -7,5 +7,27 @@ title: Random Name Generator
 
 <div
     x-data"{
-        
-    }
+      names: ['Jake', 'Katey', 'Andrew', 'Owen', 'Sommer', 'Jack', 'Aidan', 'Eric', 'Emma', 'Ellie'],  
+      randomName: '',
+      generateName() {
+        const newName = this.names[Math.floor(Math.random() * this.names.length)];
+        alert(newName);
+        this.randomName = newName;
+      } 
+    }"
+
+    style="text-align: center; margin-top: 1rem;"
+>
+  <button
+    @click="generateName()"
+    style="padding: 1rem; font-size: 1rem;"
+  >
+    Generate Name
+  </button>
+
+  <p
+    x-text="randomName"
+    style="margin-top: 1rem; font-size: 1.25rem; font-weight: bold;"
+  ></p>
+</div>
+
